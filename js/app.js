@@ -55,13 +55,22 @@ playBtnElement.addEventListener('click', function () {
   const cellDomElements = document.querySelectorAll('.cell');
   // -creare un ciclo for per la lunghezza delle cell 
   for (let i = 0; i < cellDomElements.length; i++) {
+
     // -dichiarare la cell corrente [i]
     const currentCellElement = cellDomElements[i];
+
+    //gestione click
     currentCellElement.addEventListener('click', function () {
-      console.log('la casella cliccata è la numero: ' + currentCellElement.innerHTML);
-
-      currentCellElement.classList.add('bg-green');
-
+        // Verifica se il numero presente nell'elemento HTML è una bomba
+      if (bombe.includes(currentCellElement.innerHTML)){
+        //se è una bomba stampa il messaggio e aggiungi il bg-red
+        console.log('Hai preso una bomba');
+        currentCellElement.classList.add('bg-red');
+      }else{
+        //Se no stampa messaggio positivo e bg-green
+        console.log('la casella clickata è la numero: ' +  currentCellElement.innerHTML);
+        currentCellElement.classList.add('bg-green')
+      }
     })
   }
 //creo funzione per la formula del numero random arrotando 
@@ -88,6 +97,7 @@ console.log(n)
   return bombsArray
 }
 })
+
 
 
 
