@@ -64,6 +64,12 @@ playBtnElement.addEventListener('click', function () {
 
     })
   }
+//creo funzione per la formula del numero random arrotando 
+function getRandomNumbers(min, max){
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random()*(max - min + 1) + min);
+}
 
 //creo funzione per la creazione delle bombe con numero minimo (1) e numero max (100) e il numero delle mie bombe (16)
 function getArrayBombeNumbers(minRange, maxRange, number){
@@ -71,26 +77,19 @@ function getArrayBombeNumbers(minRange, maxRange, number){
 //ciclo while continua finché l'array delle bombe non ha raggiunto il numero desiderato
 while (bombsArray.length < number){
   //regola per generare numeri bombe
-  const n = getArrayBombeNumbers(minRange, maxRange);
+  const n = getRandomNumbers(minRange, maxRange);
 console.log(n)
   //se n non è già presente nel array allora pushare il numero nel array
   if (bombsArray.includes(n) === false) {
     bombsArray.push(n);
   }
-  
-
-  //array generato
+} 
+ //array generato
   return bombsArray
-}
 }
 })
 
-//creo funzione per la formula del numero random arrotando 
-function getArrayBombeNumbers(min, max){
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random()*(max - min + 1) + min);
-}
+
 
 
 
